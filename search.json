@@ -426,7 +426,7 @@
     "href": "data-dictionary.html#models",
     "title": "Data dictionary",
     "section": "Models",
-    "text": "Models\nPre-fitted model objects are stored in models/ as .rds files. All were fit with brms using CmdStan on the backend.\n\n\n\n\n\n\n\n\nFile\nDescription\nChapter\n\n\n\n\nfit_b1.rds\nBernoulli multilevel model fit to sim_dat.csv (post-test only)\nPlanning\n\n\nsim_b1.rds\nSame formula as fit_b1, fit to a single simulated dataset (d1) to validate the data-generating process\nPlanning\n\n\nfit_b2.rds\nBernoulli multilevel model fit to dat.csv, the wrangled dataset used in the modelling and effects chapters\n?sec-modellingç",
+    "text": "Models\nPre-fitted model objects are stored in models/ as .rds files. All were fit with brms using CmdStan on the backend.\n\n\n\n\n\n\n\n\nFile\nDescription\nChapter\n\n\n\n\nfit_b1.rds\nBernoulli multilevel model fit to sim_dat.csv (post-test only)\nPlanning\n\n\nsim_b1.rds\nSame formula as fit_b1, fit to a single simulated dataset (d1) to validate the data-generating process\nPlanning\n\n\nfit_b2.rds\nBernoulli multilevel model fit to dat.csv, the wrangled dataset used in the modelling and effects chapters\nModelling",
     "crumbs": [
       "Appendices",
       "Data dictionary"
