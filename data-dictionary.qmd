@@ -70,4 +70,4 @@ All were fit with brms using CmdStan on the backend.
 |---|---|---|
 | `fit_b1.rds` | Bernoulli multilevel model fit to `sim_dat.csv` (post-test only) | @sec-planning |
 | `sim_b1.rds` | Same formula as `fit_b1`, fit to a single simulated dataset (`d1`) to validate the data-generating process | @sec-planning |
-| `fit_b2.rds` | Bernoulli multilevel model fit to `dat.csv`, the wrangled dataset used in the modelling and effects chapters | @sec-modellingç |
+| `fit_b2.rds` | Bernoulli multilevel model fit to `dat.csv`, the wrangled dataset used in the modelling and effects chapters | @sec-modelling |

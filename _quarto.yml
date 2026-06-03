@@ -7,7 +7,7 @@ book:
   author: "Rich Ramsey"
   #version: "0.1"
   date: today
-  #repo-url: 
+  repo-url: https://github.com/rich-ramsey/li-lab-workflow
   repo-actions: [edit, issue, source]
   chapters:
     - index.qmd
@@ -28,12 +28,12 @@ book:
     - part: "Appendices"
       chapters:
         - data-dictionary.qmd
-        
+
   page-footer:
     left: "© Rich Ramsey, ETH Zürich. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
     right:
       - icon: github
-       # href: 
+      - href: https://github.com/rich-ramsey/li-lab-workflow
 
 bibliography: references.bib
 csl: apa.csl

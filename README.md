@@ -21,7 +21,7 @@ Model fitting requires CmdStan.
 
 ## Reading the book
 
-🔗 [li-lab-workflow.github.io](https://your-url-here) ← add once deployed
+🔗 [rich-ramsey.github.io/li-lab-workflow/](https://rich-ramsey.github.io/li-lab-workflow/) 
 
 Or clone the repo and run `quarto preview` locally.
 
