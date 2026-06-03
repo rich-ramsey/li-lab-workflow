@@ -1,0 +1,58 @@
+project:
+  type: book
+  output-dir: _book
+  
+book:
+  title: "A Workflow for Experiment Planning and Data Analysis in Education Research"
+  author: "Rich Ramsey"
+  #version: "0.1"
+  date: today
+  #repo-url: 
+  repo-actions: [edit, issue, source]
+  chapters:
+    - index.qmd
+
+    - part: "Before data collection"
+      chapters: 
+        - 01-planning.qmd
+        - 02-prereg.qmd
+        
+    - part: "After data collection"
+      chapters: 
+        - 03-wrangle.qmd
+        - 04-model.qmd
+        - 05-effects.qmd
+
+    - references.qmd
+
+    - part: "Appendices"
+      chapters:
+        - data-dictionary.qmd
+        
+  page-footer:
+    left: "© Rich Ramsey, ETH Zürich. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+    right:
+      - icon: github
+       # href: 
+
+bibliography: references.bib
+csl: apa.csl
+
+format:
+  html:
+    theme:
+      dark: solar
+      light: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-fold: true
+    code-tools: true
+    link-external-newwindow: true
+    mermaid:
+      theme: neutral
+  #typst: default
+
+execute:
+  freeze: auto
+  cache: false

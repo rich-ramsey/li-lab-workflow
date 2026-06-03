@@ -1,0 +1,39 @@
+# Preface {.unnumbered}
+
+This book documents a data analysis workflow that might be useful for people in the [Learning and Instruction Lab](https://li.ethz.ch/) at ETH Zürich.
+It might also be useful for researchers in education research more generally, as well as anyone else who analyses behavioural data from human participants.
+
+## Why this exists
+
+After conversations with several lab members — Martina R., Ipek, Charlotte, Martina V., and Christian — a set of common themes emerged across otherwise distinct projects.
+Each project used a broadly similar design, collected similar types of data, and faced similar questions about planning and analysis.
+Rather than repeat the same conversations, I wrote them down.
+
+## What this book covers
+
+The book follows the natural sequence of a study from planning to inference, split into two parts.
+
+*Part 1: Before data collection:* how to use pilot data or simulations to justify a sample size (@sec-planning), and what and how to preregister (@sec-prereg).
+
+*Part 2: After data collection:* how to process and visualise data (@sec-data-processing), fit a multilevel Bayesian regression model (@sec-modelling), and generate and communicate inferences (@sec-inference).
+
+## What this book does not cover
+
+This is deliberately a workflow document, not a methods textbook.
+The most important scientific decisions — framing the theoretical context, specifying research questions, choosing appropriate measures — are not covered here.
+Those decisions should come first, and nothing in this workflow substitutes for them.
+
+## A note on code 
+
+All code is written in R and uses a tidyverse + CmdStan/brms stack.
+Slow-running chunks (model fitting, simulations) are pre-compiled; the book renders from saved outputs by default.
+See the reproducibility note in the README for details on refitting from scratch.
+
+## A note on data
+
+The data are simulated based on the structure and parameter estimates of a dataset collected by a lab member as part of their PhD research.
+The simulated data preserve the key features of the original — sample size, design structure, effect magnitudes, and variability — but contain no real participant data.
+
+Simulated data are used for two reasons.
+First, they allow the book to be fully self-contained and publicly shareable without raising data privacy concerns.
+Second, because the true parameter values are known by construction, they make it easier to check that models are recovering what they should — a useful property when the goal is to outline a data analysis and modelling workflow.

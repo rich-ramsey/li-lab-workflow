@@ -1,0 +1,132 @@
+# Inference {#sec-inference}
+
+This file uses posterior predictions to make inferences and evaluate hypotheses.
+
+For more details on this kind of workflow for making inferences, I would suggest reading the following:
+
+1. [Statistical rethinking](https://xcelab.net/rm/) by Richard McElreath [@mcelreathStatisticalRethinkingBayesian2020]. This provides a nice overview of prediction in the context of Bayesian data analysis.
+2. [Model to meaning](https://marginaleffects.com/) by Vincent Arel-Bundock [@arel-bundockModelMeaningHow2025], as well as these related journal articles [@arel-bundockHowInterpretStatistical2024; @rohrerModelsPredictionMachines2026]. These articles provide the intuition and the tools to make it clear why it can often be advantageous to take a model and make predictions in a natural scale that that data were recorded in, rather than parameters in a regression model.
+
+```{r}
+#| label: setup
+#| include: false
+## load packages
+pkgs <- c(
+  "tidyverse",
+  "patchwork",
+  "ggdist",
+  "brms",
+  "bayesplot",
+  "tidybayes",
+  "parallel",
+  "future",
+  "furrr"
+)
+vapply(
+  pkgs,
+  library,
+  logical(1),
+  character.only = TRUE,
+  logical.return = TRUE
+)
+
+## set options
+## other settings
+options(
+  brms.backend = "cmdstanr",
+  mc.cores = parallel::detectCores(),
+  future.fork.enable = TRUE
+  #future.rng.onMisuse = "ignore"
+) ## automatically set in RStudio
+
+supportsMulticore()
+
+detectCores()
+
+# plan(multicore)
+## use multisession instead of multicore for Stan compatibility on Mac
+plan(multisession, workers = 7) ##
+# Set theme for all plots
+theme_set(
+  theme_bw() +
+    theme(
+      text = element_text(size = 18, face = "bold"),
+      title = element_text(size = 18, face = "bold"),
+      legend.position = "bottom"
+    )
+)
+```
+
+# 1. Read in the data and models
+
+```{r}
+#| label: read-data
+#| code-fold: false
+dat <- read_csv(
+  "data/dat.csv",
+  show_col_types = FALSE
+) |>
+  mutate(
+    group = factor(
+      group,
+      levels = c("control", "embodied")
+    )
+  )
+head(dat)
+# glimpse(dat)
+# summary(dat)
+```
+
+read models, if already computed
+
+```{r}
+#| label: read-models
+#| eval: true # always runs — fast
+#| code-fold: false
+fit_b2 <- readRDS("models/fit_b2.rds")
+summary(fit_b2)
+```
+
+# 2. Calculate posterior predictions
+
+Here we try a simple version, which is the population-average probability for a hypothetical average participant on a hypothetical average item.
+
+```{r}
+#| label: calc-posterior-preds
+#| code-fold: false 
+nd <- tibble(
+  group = c("control", "embodied"),
+  pre_score_z = 0
+)
+
+# all draws per group
+epred <- fit_b2 |>
+  tidybayes::add_epred_draws(newdata = nd, re_formula = NA)
+
+# difference (all draws)
+epred_diff <- epred |>
+  tidybayes::compare_levels(.epred, by = group)
+
+# plot group epreds
+plot_epred <- epred |>
+  ggplot(aes(x = .epred, y = group, fill = group)) +
+  stat_halfeye(alpha = 0.7) +
+  labs(x = "P(correct)", y = NULL)
+
+# plot the difference
+plot_diff <- epred_diff |>
+  ggplot(aes(x = .epred)) +
+  stat_halfeye(alpha = 0.7) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  labs(x = "Δ P(correct) [embodied - control]", y = NULL)
+
+p1 <- plot_epred | plot_diff
+p1
+
+# summarise if needed
+epred |>
+  median_qi(.epred, .width = 0.95)
+
+epred_diff |>
+  median_qi(.epred, .width = 0.95)
+```

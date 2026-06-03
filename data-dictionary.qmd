@@ -1,0 +1,73 @@
+# Data dictionary {#sec-data-dictionary .unnumbered}
+
+This appendix documents all datasets in the `data/` folder.
+These files are pre-compiled and used throughout the book to avoid requiring model refits or long-running simulations during rendering.
+
+## sim_dat.csv {#sec-dict-sim-dat}
+
+The primary simulated dataset used in @sec-planning and @sec-data-processing.
+It is synthetic, generated to match the structure of previously collected data in the lab.
+It is not real data.
+
+| Variable | Type | Values | Description |
+|---|---|---|---|
+| `pid` | character | P001–P216 | Participant identifier |
+| `item_id` | integer | 1–32 | Item identifier |
+| `group` | factor | control, embodied | Experimental condition (between-person) |
+| `test_time` | factor | pre, post, delay | Testing occasion |
+| `correct` | integer | 0, 1 | Binary accuracy on each trial |
+| `pre_score_z` | double | continuous | Standardised pre-test score |
+
+## sim_dat_wide.csv {#sec-dict-sim-dat-wide}
+
+A wide-format version of `sim_dat.csv`, used in @sec-data-processing as a toy example for demonstrating `pivot_longer()`.
+Each row is one participant × test time combination, with one column per item.
+
+| Variable | Type | Values | Description |
+|---|---|---|---|
+| `pid` | character | P001–P216 | Participant identifier |
+| `group` | factor | control, embodied | Experimental condition (between-person) |
+| `test_time` | factor | pre, post, delay | Testing occasion |
+| `pre_score_z` | double | continuous | Standardised pre-test score |
+| `item_1` … `item_32` | integer | 0, 1 | Binary accuracy, one column per item |
+
+## dat.csv {#sec-dict-dat}
+
+A simplified version of `sim_dat.csv` used in @sec-modelling and @sec-inference.
+It retains only the post-test observations and drops variables not needed for the modelling chapters, giving a cleaner starting point for readers focused on model fitting rather than data processing.
+
+| Variable | Type | Values | Description |
+|---|---|---|---|
+| `pid` | character | P001–P216 | Participant identifier |
+| `item_id` | integer | 1–32 | Item identifier |
+| `group` | factor | control, embodied | Experimental condition (between-person) |
+| `correct` | integer | 0, 1 | Binary accuracy on each trial |
+| `pre_score_z` | double | continuous | Standardised pre-test score |
+
+## p_100_sims.csv {#sec-dict-p-100-sims}
+
+The output of the simulation study in @sec-planning (section 6.6).
+Each row is one parameter estimate from one fitted model across the simulation grid.
+This file is read in by the plotting and precision chunks, which render without needing to rerun the simulations.
+
+| Variable | Type | Values | Description |
+|---|---|---|---|
+| `rep` | integer | 1–100 | Simulation replicate index |
+| `subj_n` | integer | 100, 150, 200 | Number of subjects in that simulation |
+| `b1` | double | 0.15, 0.40, 0.87, 1.39 | True group effect (log-odds) used in data-generating process |
+| `parameter` | character | Intercept, groupembodied, pre_score_z | Model parameter name |
+| `Estimate` | double | continuous | Posterior median for that parameter |
+| `Est.Error` | double | continuous | Posterior SD |
+| `Q2.5` | double | continuous | 2.5th percentile of posterior (lower 95% CI) |
+| `Q97.5` | double | continuous | 97.5th percentile of posterior (upper 95% CI) |
+
+## Models
+
+Pre-fitted model objects are stored in `models/` as `.rds` files.
+All were fit with brms using CmdStan on the backend.
+
+| File | Description | Chapter |
+|---|---|---|
+| `fit_b1.rds` | Bernoulli multilevel model fit to `sim_dat.csv` (post-test only) | @sec-planning |
+| `sim_b1.rds` | Same formula as `fit_b1`, fit to a single simulated dataset (`d1`) to validate the data-generating process | @sec-planning |
+| `fit_b2.rds` | Bernoulli multilevel model fit to `dat.csv`, the wrangled dataset used in the modelling and effects chapters | @sec-modellingç |
