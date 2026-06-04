@@ -105,16 +105,13 @@ Delete all that do not apply.
 Blinding describes who is aware of the experimental manipulations within a study. Delete all that do not apply. 
 -->
 
-- No blinding is involved in this study.
-
 
 ### 7.	Is there any additional blinding in this study?
 
 <!-- 
 Describe any additional blinding procedures that were not covered by the options above. 
 -->
-
-Not applicable. 
+ 
 
 ### 8.	Study design
 
@@ -137,7 +134,6 @@ Example: We will use block randomization, where each participant will be randoml
 More info: Typical randomization techniques include: simple, block, stratified, and adaptive covariate randomization. If randomization is required for the study, the method should be specified here, not simply the source of random numbers.
 -->
 
-Not applicable. 
 
 ## Sampling Plan 
 
@@ -165,7 +161,6 @@ Example: An appropriate instance of using existing data would be collecting a sa
 More info: An appropriate instance of using existing data would be collecting a sample size much larger than is required for the study, using a small portion of it to conduct exploratory analysis, and then registering one particular analysis that showed promising results. After registration, conduct the specified analysis on that part of the dataset that had not been investigated by the researcher up to that point. 
 -->
 
-Not applicable. 
 
 ### 12.	Data collection procedures
 
@@ -188,7 +183,6 @@ Example: Our target sample size is 280 participants. We will attempt to recruit 
 More information: For some studies, this will simply be the number of samples or the number of clusters. For others, this could be an expected range, minimum, or maximum number. 
 -->
 
-Our target sample size is XX participants.
 
 ### 14. Sample size rationale 
 
@@ -200,15 +194,6 @@ Example: We used the software program G*Power to conduct a power analysis. Our g
 More information: This gives you an opportunity to specifically state how the sample size will be determined. A wide range of possible answers is acceptable; remember that transparency is more important than principled justifications. If you state any reason for a sample size upfront, it is better than stating no reason and leaving the reader to “fill in the blanks.” Acceptable rationales include: a power analysis, an arbitrary number of subjects, or a number based on time or monetary constraints. 
 -->
 
-
-<!--
-the sample size from Hershman and Henik (2019) who identified task conflict in pupil size data and used 19 participants. We decided to collect data from 20 participants, which was the sample size in our previous Stroop experiments. 
-
-The total participant sample size was determined based on several factors. First, we used a previous simulation-based sample size planning study as a guide (Panis & Ramsey, 2024; https://osf.io/preprints/psyarxiv/57bh6_v1). This prior study was set in the context of masked priming and used a similar hazard analysis. It showed that 20 participants and 200 trials per condition offered statistical power of more than 90% to detect an effect size of 50% reduction in hazard (hazard ratio = .5) in a single time bin. A second factor that we used to guide our choice of sample size is that we plan to run a series of related experiments, which build upon each other. So, in addition to the amount of data collected within one experiment, in terms of practical feasibility and power/precision of estimates, we also wanted to make sure that it would be practically feasible to run a series of related experiments using a similar design. We felt that N=20 provided a good balance between power/precision of our estimates and practical feasibility, given our resource constraints (Lakens, 2022). 
--->
-
-
-
 ### 15. Stopping rule 
 
 <!-- 
@@ -219,7 +204,6 @@ Example: We will post participant sign-up slots by week on the preceding Friday 
 More information: You may specify a stopping rule based on p-values only in the specific case of sequential analyses with pre-specified checkpoints, alphas levels, and stopping rules. Unacceptable rationales include stopping based on p-values if checkpoints and stopping rules are not specified. If you have control over your sample size, then including a stopping rule is not necessary, though it must be clear in this question or a previous question how an exact sample size is attained. 
 -->
 
-We terminate data collection as soon as we have XX participants after preregistration exclusions.
 
 ## Variables 
 
@@ -260,7 +244,6 @@ Example: We will take the mean of the two questions above to create a single mea
 More information: If you are using multiple pieces of data to construct a single variable, how will this occur? Both the data that are included and the formula or weights for each measure must be specified. Standard summary statistics, such as “means” do not require a formula, though more complicated indices require either the exact formula or, if it is an established index in the field, the index must be unambiguously defined. For example, “biodiversity index” is too broad, whereas “Shannon’s biodiversity index” is appropriate. 
 -->
 
-Not applicable.
 
 ## Analysis Plan
 
@@ -297,8 +280,6 @@ Example: The “Effect of sugar on brownie tastiness” does not require any add
 More information: If any categorical predictors are included in a regression, indicate how those variables will be coded (e.g. dummy coding, summation coding, etc.) and what the reference category will be. 
 -->
 
-Not applicable.
-
 ### 21. Inference criteria 
 
 <!-- 
@@ -309,9 +290,12 @@ Example: We will use the standard p<.05 criteria for determining if the ANOVA an
 More information: P-values, confidence intervals, and effect sizes are standard means for making an inference, and any level is acceptable, though some criteria must be specified in this or previous fields. Bayesian analyses should specify a Bayes factor or a credible interval. If you are selecting models, then how will you determine the relative quality of each? In regards to multiple comparisons, this is a question with few “wrong” answers. In other words, transparency is more important than any specific method of controlling the false discovery rate or false error rate. One may state an intention to report all tests conducted or one may conduct a specific correction procedure; either strategy is acceptable.
 -->
 
+<!-- 
+## and an example from my lab
 We will evaluate the contrast effects based on the posterior distributions using three complementary criteria: sign, size, and precision. First, we will assess whether the credible interval excludes zero. Specifically, we will report whether the 90% credible interval lies entirely above, entirely below, or includes zero. This addresses the sign (or direction) of the effect. Second, we will examine the size or magnitude of the posterior median. Third, we will assess the width of the 90% credible interval as an indicator of estimation precision. Narrow intervals indicate precise estimates, while wide intervals indicate substantial uncertainty that may warrant cautious interpretation or additional data collection. 
 
 We will report all three criteria together to provide a complete characterization of our findings (Cumming, 2014; Frank et al., 2025; Kruschke & Liddell, 2018; McElreath, 2020). For example, a positive median (sign) with large magnitude (size) but wide credible interval (precision) would be interpreted as suggestive but inconclusive evidence, whereas the same sign and size with a narrow interval excluding zero would constitute stronger evidence for an effect. This approach ensures we avoid over-interpreting imprecise estimates and adequately characterize the strength of evidence in our data.
+-->
 
 ### 22. Data exclusion 
 
@@ -353,7 +337,6 @@ Example: We expect that certain demographic traits may be related to taste prefe
 If there is any additional information that you feel needs to be included in your preregistration, please enter it here. Literature cited, disclosures of any related work such as replications or work that uses the same data, or other context that will be helpful for future readers would be appropriate here. 
 -->
 
-Not applicable. 
 
 ## References 
 

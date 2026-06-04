@@ -93,7 +93,9 @@ Here we try a simple version, which is the population-average probability for a 
 
 ```{r}
 #| label: calc-posterior-preds
-#| code-fold: false 
+#| code-fold: false
+#| fig-width: 10 
+#| fig-height: 7 
 nd <- tibble(
   group = c("control", "embodied"),
   pre_score_z = 0
