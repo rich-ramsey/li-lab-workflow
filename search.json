@@ -262,7 +262,7 @@
     "href": "02-prereg.html#design-plan",
     "title": "Preregistration",
     "section": "Design Plan",
-    "text": "Design Plan\n\n\n5. Study Type\n\n\nExperiment - A researcher randomly assigns treatments to study subjects, this includes field or lab experiments. This is also known as an intervention experiment and includes randomized controlled trials.\n\n\n\n6. Blinding\n\n\nNo blinding is involved in this study.\n\n\n\n7. Is there any additional blinding in this study?\n\nNot applicable.\n\n\n8. Study design\n\n\n\n9. Randomization\n\nNot applicable.",
+    "text": "Design Plan\n\n\n5. Study Type\n\n\nExperiment - A researcher randomly assigns treatments to study subjects, this includes field or lab experiments. This is also known as an intervention experiment and includes randomized controlled trials.\n\n\n\n6. Blinding\n\n\n\n7. Is there any additional blinding in this study?\n\n\n\n8. Study design\n\n\n\n9. Randomization",
     "crumbs": [
       "Before data collection",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preregistration</span>"
@@ -273,7 +273,7 @@
     "href": "02-prereg.html#sampling-plan",
     "title": "Preregistration",
     "section": "Sampling Plan",
-    "text": "Sampling Plan\n\n\n10. Existing data\n\n\nRegistration prior to creation of data: As of the date of submission of this research plan for preregistration, the data have not yet been collected, created, or realized.\n\n\n\n11. Explanation of existing data\n\nNot applicable.\n\n\n12. Data collection procedures\n\n\n\n13. Sample size\n\nOur target sample size is XX participants.\n\n\n14. Sample size rationale\n\n\n\n\n15. Stopping rule\n\nWe terminate data collection as soon as we have XX participants after preregistration exclusions.",
+    "text": "Sampling Plan\n\n\n10. Existing data\n\n\nRegistration prior to creation of data: As of the date of submission of this research plan for preregistration, the data have not yet been collected, created, or realized.\n\n\n\n11. Explanation of existing data\n\n\n\n12. Data collection procedures\n\n\n\n13. Sample size\n\n\n\n14. Sample size rationale\n\n\n\n15. Stopping rule",
     "crumbs": [
       "Before data collection",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preregistration</span>"
@@ -284,7 +284,7 @@
     "href": "02-prereg.html#variables",
     "title": "Preregistration",
     "section": "Variables",
-    "text": "Variables\n\n\n16. Manipulated variables\n\n\n\n17. Measured variables\n\n\n\n18. Indices\n\nNot applicable.",
+    "text": "Variables\n\n\n16. Manipulated variables\n\n\n\n17. Measured variables\n\n\n\n18. Indices",
     "crumbs": [
       "Before data collection",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preregistration</span>"
@@ -295,7 +295,7 @@
     "href": "02-prereg.html#analysis-plan",
     "title": "Preregistration",
     "section": "Analysis Plan",
-    "text": "Analysis Plan\n\n\n19. Statistical models\n\n\n\n\n20. Transformations\n\nNot applicable.\n\n\n21. Inference criteria\n\nWe will evaluate the contrast effects based on the posterior distributions using three complementary criteria: sign, size, and precision. First, we will assess whether the credible interval excludes zero. Specifically, we will report whether the 90% credible interval lies entirely above, entirely below, or includes zero. This addresses the sign (or direction) of the effect. Second, we will examine the size or magnitude of the posterior median. Third, we will assess the width of the 90% credible interval as an indicator of estimation precision. Narrow intervals indicate precise estimates, while wide intervals indicate substantial uncertainty that may warrant cautious interpretation or additional data collection.\nWe will report all three criteria together to provide a complete characterization of our findings (Cumming, 2014; Frank et al., 2025; Kruschke & Liddell, 2018; McElreath, 2020). For example, a positive median (sign) with large magnitude (size) but wide credible interval (precision) would be interpreted as suggestive but inconclusive evidence, whereas the same sign and size with a narrow interval excluding zero would constitute stronger evidence for an effect. This approach ensures we avoid over-interpreting imprecise estimates and adequately characterize the strength of evidence in our data.\n\n\n22. Data exclusion\n\n\n\n23. Missing data\n\n\n\n24. Exploratory analysis",
+    "text": "Analysis Plan\n\n\n19. Statistical models\n\n\n\n\n20. Transformations\n\n\n\n21. Inference criteria\n\n\n\n\n22. Data exclusion\n\n\n\n23. Missing data\n\n\n\n24. Exploratory analysis",
     "crumbs": [
       "Before data collection",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preregistration</span>"
@@ -306,7 +306,7 @@
     "href": "02-prereg.html#other",
     "title": "Preregistration",
     "section": "Other",
-    "text": "Other\n\n25. Other\n\nNot applicable.",
+    "text": "Other\n\n25. Other",
     "crumbs": [
       "Before data collection",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preregistration</span>"
