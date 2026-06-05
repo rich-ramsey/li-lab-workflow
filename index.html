@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rich Ramsey">
-<meta name="dcterms.date" content="2026-06-04">
+<meta name="dcterms.date" content="2026-06-05">
 
 <title>A Workflow for Experiment Planning and Data Analysis in Education Research</title>
 <style>
@@ -405,6 +405,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-this-book-does-not-cover" id="toc-what-this-book-does-not-cover" class="nav-link" data-scroll-target="#what-this-book-does-not-cover">What this book does not cover</a></li>
   <li><a href="#a-note-on-code" id="toc-a-note-on-code" class="nav-link" data-scroll-target="#a-note-on-code">A note on code</a></li>
   <li><a href="#a-note-on-data" id="toc-a-note-on-data" class="nav-link" data-scroll-target="#a-note-on-data">A note on data</a></li>
+  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback">Feedback</a></li>
+  <li><a href="#license-and-citation" id="toc-license-and-citation" class="nav-link" data-scroll-target="#license-and-citation">License and citation</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rich-ramsey/li-lab-workflow/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rich-ramsey/li-lab-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/rich-ramsey/li-lab-workflow/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -415,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">A Workflow for Experiment Planning and Data Analysis in Education Research</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">A Workflow for Experiment Planning and Data Analysis in Education Research</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -432,7 +434,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 4, 2026</p>
+      <p class="date">June 5, 2026</p>
     </div>
   </div>
   
@@ -449,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This book documents a data analysis workflow that might be useful for people in the <a href="https://li.ethz.ch/">Learning and Instruction Lab</a> at ETH Zürich. It might also be useful for researchers in education research more generally, as well as anyone else who analyses behavioural data from human participants.</p>
 <section id="why-this-exists" class="level2">
 <h2 class="anchored" data-anchor-id="why-this-exists">Why this exists</h2>
-<p>After conversations with several lab members — Martina R., Ipek, Charlotte, Martina V., and Christian — a set of common themes emerged across otherwise distinct projects. Each project used a broadly similar design, collected similar types of data, and faced similar questions about planning and analysis. Rather than repeat the same conversations, I wrote them down.</p>
+<p>After conversations with several lab members — Martina R., Ipek, Charlotte, Martina V., and Christian — a set of common themes emerged across otherwise distinct projects. Each project used a broadly similar design, collected similar types of data, and faced similar questions about planning and analysis. Rather than repeat my comments and feedback, I decided to outline my thoughts here in the form of a general workflow. The hope would be that folks in the lab will find it a useful resource for planning experiments and analysing data.</p>
 </section>
 <section id="what-this-book-covers" class="level2">
 <h2 class="anchored" data-anchor-id="what-this-book-covers">What this book covers</h2>
@@ -469,6 +471,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="a-note-on-data">A note on data</h2>
 <p>The data are simulated based on the structure and parameter estimates of a dataset collected by a lab member as part of their PhD research. The simulated data preserve the key features of the original — sample size, design structure, effect magnitudes, and variability — but contain no real participant data.</p>
 <p>Simulated data are used for two reasons. First, they allow the book to be fully self-contained and publicly shareable without raising data privacy concerns. Second, because the true parameter values are known by construction, they make it easier to check that models are recovering what they should — a useful property when the goal is to outline a data analysis and modelling workflow.</p>
+</section>
+<section id="feedback" class="level2">
+<h2 class="anchored" data-anchor-id="feedback">Feedback</h2>
+<p>This is a first draft version of the document, and therefore I welcome constructive feedback on things that could be improved.</p>
+</section>
+<section id="license-and-citation" class="level2">
+<h2 class="anchored" data-anchor-id="license-and-citation">License and citation</h2>
+<p>© Rich Ramsey, ETH Zürich. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>book{RamseyliLabworkflow2026,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {A Workflow <span class="cf">for</span> Experiment Planning and Data Analysis <span class="cf">in</span> Education Research},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Ramsey, Richard},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  month <span class="ot">=</span> {<span class="dv">1</span>},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  edition <span class="ot">=</span> {version <span class="fl">0.1</span>},</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {},</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  doi <span class="ot">=</span> {}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 
 
 <!-- -->
@@ -955,45 +979,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preface {.unnumbered}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>This book documents a data analysis workflow that might be useful for people in the <span class="co">[</span><span class="ot">Learning and Instruction Lab</span><span class="co">](https://li.ethz.ch/)</span> at ETH Zürich.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>It might also be useful for researchers in education research more generally, as well as anyone else who analyses behavioural data from human participants.</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why this exists</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>After conversations with several lab members — Martina R., Ipek, Charlotte, Martina V., and Christian — a set of common themes emerged across otherwise distinct projects.</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Each project used a broadly similar design, collected similar types of data, and faced similar questions about planning and analysis.</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Rather than repeat the same conversations, I wrote them down.</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## What this book covers</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The book follows the natural sequence of a study from planning to inference, split into two parts.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>*Part 1: Before data collection:* how to use pilot data or simulations to justify a sample size (@sec-planning), and what and how to preregister (@sec-prereg).</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>*Part 2: After data collection:* how to process and visualise data (@sec-data-processing), fit a multilevel Bayesian regression model (@sec-modelling), and generate and communicate inferences (@sec-inference).</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## What this book does not cover</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>This is deliberately a workflow document, not a methods textbook.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>The most important scientific decisions — framing the theoretical context, specifying research questions, choosing appropriate measures — are not covered here.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Those decisions should come first, and nothing in this workflow substitutes for them.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## A note on code </span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>All code is written in R and uses a tidyverse + CmdStan/brms stack.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Slow-running chunks (model fitting, simulations) are pre-compiled; the book renders from saved outputs by default.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>See the reproducibility note in the README for details on refitting from scratch.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## A note on data</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>The data are simulated based on the structure and parameter estimates of a dataset collected by a lab member as part of their PhD research.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>The simulated data preserve the key features of the original — sample size, design structure, effect magnitudes, and variability — but contain no real participant data.</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Simulated data are used for two reasons.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>First, they allow the book to be fully self-contained and publicly shareable without raising data privacy concerns.</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Second, because the true parameter values are known by construction, they make it easier to check that models are recovering what they should — a useful property when the goal is to outline a data analysis and modelling workflow.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preface {.unnumbered}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>This book documents a data analysis workflow that might be useful for people in the <span class="co">[</span><span class="ot">Learning and Instruction Lab</span><span class="co">](https://li.ethz.ch/)</span> at ETH Zürich.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>It might also be useful for researchers in education research more generally, as well as anyone else who analyses behavioural data from human participants.</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why this exists</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>After conversations with several lab members — Martina R., Ipek, Charlotte, Martina V., and Christian — a set of common themes emerged across otherwise distinct projects.</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>Each project used a broadly similar design, collected similar types of data, and faced similar questions about planning and analysis.</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>Rather than repeat my comments and feedback, I decided to outline my thoughts here in the form of a general workflow.</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>The hope would be that folks in the lab will find it a useful resource for planning experiments and analysing data. </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## What this book covers</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>The book follows the natural sequence of a study from planning to inference, split into two parts.</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>*Part 1: Before data collection:* how to use pilot data or simulations to justify a sample size (@sec-planning), and what and how to preregister (@sec-prereg).</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>*Part 2: After data collection:* how to process and visualise data (@sec-data-processing), fit a multilevel Bayesian regression model (@sec-modelling), and generate and communicate inferences (@sec-inference).</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## What this book does not cover</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>This is deliberately a workflow document, not a methods textbook.</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>The most important scientific decisions — framing the theoretical context, specifying research questions, choosing appropriate measures — are not covered here.</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Those decisions should come first, and nothing in this workflow substitutes for them.</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## A note on code </span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>All code is written in R and uses a tidyverse + CmdStan/brms stack.</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>Slow-running chunks (model fitting, simulations) are pre-compiled; the book renders from saved outputs by default.</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>See the reproducibility note in the README for details on refitting from scratch.</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## A note on data</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>The data are simulated based on the structure and parameter estimates of a dataset collected by a lab member as part of their PhD research.</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>The simulated data preserve the key features of the original — sample size, design structure, effect magnitudes, and variability — but contain no real participant data.</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>Simulated data are used for two reasons.</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>First, they allow the book to be fully self-contained and publicly shareable without raising data privacy concerns.</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>Second, because the true parameter values are known by construction, they make it easier to check that models are recovering what they should — a useful property when the goal is to outline a data analysis and modelling workflow.</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feedback</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>This is a first draft version of the document, and therefore I welcome constructive feedback on things that could be improved. </span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## License and citation</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>© Rich Ramsey, ETH Zürich. Licensed under </span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">CC BY 4.0</span><span class="co">](https://creativecommons.org/licenses/by/4.0/)</span>.</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>book{RamseyliLabworkflow2026,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {A Workflow <span class="cf">for</span> Experiment Planning and Data Analysis <span class="cf">in</span> Education Research},</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Ramsey, Richard},</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  month <span class="ot">=</span> {<span class="dv">1</span>},</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  edition <span class="ot">=</span> {version <span class="fl">0.1</span>},</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {},</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  doi <span class="ot">=</span> {}</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
