@@ -1,6 +1,15 @@
 # Modelling {#sec-modelling}
 
-This file fits a Bayesian multi-level regression model to the data.
+This chapter fits a Bayesian multi-level regression model to the data using [`brms`](https://paulbuerkner.com/brms/) [@burknerBrmsPackageBayesian2017] and [`CmdStan`](https://mc-stan.org/docs/cmdstan-guide/).
+The general approach largely follows Richard McElreath's textbook [@mcelreathStatisticalRethinkingBayesian2020] and adopts a maximal varying effects structure [@barrRandomEffectsStructure2013].
+`brms` is handy for many reasons, one of which being that it uses the same formula syntax as `lme4`, which many people in psychology are already familiar with.
+
+And for a helpful introduction to estimation approaches to regression, which I generally follow, I recommend reading this paper by Krushcke & Liddell [@kruschkeBayesianNewStatistics2018].
+Figure 1 from @kruschkeBayesianNewStatistics2018 is especially informative, as it nicely compares and contrasts how estimation approaches to data analysis compare to other approaches (@fig-kruschke).
+
+![Adapted from Figure 1 in @kruschkeBayesianNewStatistics2018.](img/kruschke_fig1.png){#fig-kruschke fig-alt="Comparison of estimation, hypothesis testing, and other approaches to data analysis."}
+
+
 
 ```{r}
 #| label: setup
@@ -158,16 +167,25 @@ See this paper by Barr et al., (2013) for a clear justification of taking the "m
 To help develop understanding, I will build up to the maximal model here by showing the formulas for two other models first.
 
 1. A single level model formula.
+
+```
 formula <- bf(correct ~ group + pre_score_z)
+```
 
 2. Add varying intercepts by pid.
+
+```
 formula <- bf(correct ~ group + pre_score_z +
     (1 | pid))
+```
 
 3. Add varying intercepts and slopes by item_id.
+
+```
 formula <- bf(correct ~ group + pre_score_z +
     (1 | pid),
     (1 + group | item_id))
+```
 
 But in the below, we will only fit one model, using formula 3.
 

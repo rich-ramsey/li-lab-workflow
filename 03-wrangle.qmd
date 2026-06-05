@@ -1,6 +1,6 @@
 # Data processing {#sec-data-processing}
 
-This file wrangles the data to re-shape it, plot it, create summary data and get it ready for modelling.
+This chapter uses [`tidyverse`](https://tidyverse.org/) tools to wrangle the data to re-shape it, plot it, create summary data and get it ready for modelling.
 
 The basic structure here is as follows:
 

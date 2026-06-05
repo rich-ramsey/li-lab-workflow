@@ -12,6 +12,7 @@ renv/library/
 
 # project files
 **figures/
+**img/
 
 # quarto
 /.quarto/

@@ -10,7 +10,7 @@ Preregistation has these benefits by design - it prevents p-hacking, HARKing, pu
 But it is not magic. 
 You could still pre-register a fundamentally flawed study, simply because you can pre-register *anything*.
 
-I think the key point is that it adds an objective and verifiable aspects of transparency, which inks thinking before and after the data were collected.
+I think the key point is that it adds an objective and verifiable aspect of transparency, which formally links thinking before and after the data were collected.
 And in my experience over the last ~10 years or so working with PhD students and postdocs on pre-registrations, the biggest win is that it forces everyone to address concrete questions about the links between research questions, hypotheses, analyses, and inference **BEFORE** you collect the data.
 It moves the timeline and the type of conversation between team members from a more diffuse and abstract sense of this is the general research question, design and type of analysis to what **EXACTLY** will we do and how will we analyse the data to evaluate our hypotheses. 
 So, in my experience, it is an extremely valuable process to go through as a scientific team.
@@ -30,9 +30,9 @@ But until then, preregistration will probably serve a useful purpose for many ac
 And you can pre-register exploratory work also, and this is not a contradiction.
 It is not necessary to pre-register exploratory work, but it could have advantages.
 As one example, if you have a question in mind, and you plan to access a large secondary dataset to address the question, it might be worth pre-registering your intent, if not an exact and specific analysis pipeline.
-This might be that of the 2000 variables available in the dataset, you only have interest in 12 to address your stated research question.
+This intent might be that of the 2000 variables available in the dataset, you only have interest in 12 to address your stated research question.
 
-Below is a template, which is borrowed from [James Bartlett](https://osf.io/t3xw8/files/fqs6j), which can be completed as a quarto document and then published as a pdf (or whatever other format you want) and then submitted. Here is a video of James explaining the [process](https://www.youtube.com/watch?v=VdhtdsKtac0). The general approach would be to setup a quarto template doc, and then for each new study, complete the sections, generate a pdf and then submit that to your preferred pre-registration site. Then keep those documents in your project folder too. The template below is largely left empty at this stage, just to show the process. 
+Below is a template, which is borrowed from [James Bartlett](https://osf.io/t3xw8/files/fqs6j), which can be completed as a quarto document and then published as a pdf (or whatever other format you want) and then submitted to a preregistration website. Here is a video of James explaining the [process](https://www.youtube.com/watch?v=VdhtdsKtac0). The general approach would be to setup a quarto template doc, and then for each new study, complete the sections, generate a pdf and then submit that to your preferred pre-registration site. Then keep those documents in your project folder too. The template below is largely left empty at this stage, just to show the process. 
 
 # A pre-registration template
 

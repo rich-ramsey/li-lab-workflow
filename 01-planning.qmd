@@ -1,8 +1,8 @@
 # Planning {#sec-planning}
 
-This file summarises one approach to planning a study.
+This chapter summarises one approach to planning a study.
 For a good summary of various approaches to sample size planning, see this paper by Daniel Lakens [@lakensSampleSizeJustification2022]. 
-Here is a table from the paper.
+Here is a table from the paper (@tbl-lakens-justification).
 
 ```{r}
 #| label: tbl-lakens-justification
@@ -46,16 +46,56 @@ But scratch beneath the surface and the most common approach *in practice* is th
 This is not a criticism, it is simply an observation.
 
 The resource constraints approach targets the maximum reasonable sample size possible based on the resources available. 
-This resource-based approach lends itself to a sensitivity analysis (rather than an *a-priori* power analysis). 
-A sensitivity analysis would be a lot simpler than what comes below, as it determines the size of an effect that one could detect with a specified research design, amount of data and level of statistical power.
+This resource-based approach lends itself to planning via determining the minimal statistically detectable effect, or a sensitivity power analysis (rather than an *a-priori* power analysis; see @tbl-lakens-evaluation). 
+Using resource constraints to determine effect size sensitivity would be a lot simpler than the simulation-based approaches outlined below, as it determines the size of an effect that one could detect with a specified research design and level of statistical power.
 So, before you get lost digging into the weeds below, I would strongly suggest that you have a conversation with your research group about implications of a resource constraints approach within the context of your project.
-A resource constraints approach will save you a lot of time, and in the majority of cases it will more straightforwardly embody how your sample size is being set.
+A resource constraints approach will save you a lot of time, and in the majority of cases it will more straightforwardly embody how your sample size is being set in practice.
 
-Of course, for reasonably simple designs and analyses that may avoid complex, multi-level data structures, then a tool like [G*Power](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower) can be very useful.
-G*Power can also be useful to give you a quick-and-dirty ballpark estimate base don your research design.
-So, I would also recommend becoming familiar with this tool also.
+And for reasonably simple designs and analyses that avoid more complex, multi-level modelling approaches, then a tool like [G*Power](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower) can be very useful.
+And even if you plan on fitting a multi-level model, G\*Power can be useful to give you a quick-and-dirty ballpark estimate based on a simplified aspect of your research design.
+So, I would recommend becoming familiar with G\*Power.
 
-But, if you're a sucker for punishment, and if you want a more involved and simulated-based approach, then continue reading. The approach is primarily based on two resources, a series of [blog posts](https://solomonkurz.netlify.app/tags/power/) by Solomon Kurz, and an R package [{faux}](https://www.scienceverse.org/faux/) by Lisa Debruine. There are also many other simulation-based approaches to plan studies with multi-level data - see the bottom of this [link](https://www.scienceverse.org/faux/) for details. And more generally, I would strongly recommend using data simulation more generally for a variety of reasons throughout the scientific workflow [@gelman2024before; @debruineUnderstandingMixedEffectsModels2021]. See this [talk](https://debruine.github.io/talks/EMPSEB-fake-it-2023/#/title-slide) by Lisa DeBruine for a nice summary.
+```{r}
+#| label: tbl-lakens-evaluation
+#| tbl-cap: "Ways to evaluate which effect sizes are interesting when planning a study. Adapted from Lakens (2022)."
+#| code-fold: true
+lakens_table_eval <- tibble::tibble(
+  `Type of Evaluation` = c(
+    "Smallest effect size of interest",
+    "The minimal statistically detectable effect",
+    "Expected effect size",
+    "Width of confidence interval",
+    "Sensitivity power analysis",
+    "Distribution of effect sizes in a research area"
+  ),
+  `Which question should a researcher ask?` = c(
+    "What is the smallest effect size that is considered theoretically or practically interesting?",
+    "Given the test and sample size, what is the critical effect size that can be statistically significant?",
+    "Which effect size is expected based on theoretical predictions or previous research?",
+    "Which effect sizes are excluded based on the expected width of the confidence interval around the effect size?",
+    "Across a range of possible effect sizes, which effects does a design have sufficient power to detect when performing a hypothesis test?",
+    "What is the empirical range of effect sizes in a specific research area, in which effects are a priori unlikely to be observed?"
+  )
+)
+
+lakens_table_eval |>
+  knitr::kable(align = "ll") |>
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover"),
+    full_width = TRUE
+  ) |>
+  kableExtra::column_spec(1, bold = TRUE, width = "25%") |>
+  kableExtra::column_spec(2, width = "75%")
+```
+
+But, if you want to plan a study that does try to capture the nested or multi-level nature of the data, such as by allowing for variation across participants or measurement items [@barrRandomEffectsStructure2013], then things get complicated fast.
+And we need to harness the power of data simulation.
+So, if you're a sucker for punishment, and if you want a more involved and simulated-based approach, then continue reading. 
+
+The approach is primarily based on two resources: a series of [blog posts](https://solomonkurz.netlify.app/tags/power/) by Solomon Kurz, and an R package called [{faux}](https://www.scienceverse.org/faux/) by Lisa Debruine. 
+There are also many other simulation-based approaches to plan studies with multi-level models - see the bottom of this [link](https://www.scienceverse.org/faux/) for details. 
+And more generally, I would strongly recommend using data simulation more generally for a variety of reasons throughout the scientific workflow that extend beyond planning [@gelman2024before; @debruineUnderstandingMixedEffectsModels2021]. 
+See this [talk](https://debruine.github.io/talks/EMPSEB-fake-it-2023/#/title-slide) by Lisa DeBruine for a nice summary.
 
 The basic approach that I follow here is as follows:
 
@@ -311,9 +351,14 @@ pp_check(fit_b1, ndraws = 100, type = "bars_grouped", group = "group")
 
 # 4. Understanding effect sizes under the logit link {#sec-effect-sizes}
 
+This section is hidden to streamline and simplify the chapter. 
+Click "Show section" to read more on understanding effect sizes in logisitic regression.
+
+<details>
+<summary>Show section</summary>
+
 Before running simulations, it is worth establishing a clear mapping between the model's native parameterisation and effect sizes that are interpretable to a general audience. 
-This section documents that mapping as a reference point for
-collaborators and for later simulation design.
+This section documents that mapping as a reference point for collaborators and for later simulation design.
 
 ## The scale problem
 
@@ -335,11 +380,14 @@ exp(-0.37) # lower 95% CI  → 0.69
 exp(0.68) # upper 95% CI  → 1.97
 ```
 
-An OR of 1.16 means the odds of a correct response are 16% higher in the embodied group. ORs are standard in clinical and epidemiological reporting but still require some statistical literacy. Crucially, the 95% CI on the OR scale [0.69, 1.97] comfortably spans 1.0, reflecting the substantial uncertainty in this estimate.
+An OR of 1.16 means the odds of a correct response are 16% higher in the embodied group. 
+ORs are standard in clinical and epidemiological reporting but still require some statistical literacy. 
+Crucially, the 95% CI on the OR scale [0.69, 1.97] comfortably spans 1.0, reflecting the substantial uncertainty in this estimate.
 
 ### Scale 2 — Probability scale
 
-The most interpretable scale for a general audience is the **probability** of a correct response**. Converting from log-odds to probability requires a baseline, which is provided by the model intercept (−0.17 at `pre_score_z = 0`, reference group = control). 
+The most interpretable scale for a general audience is the **probability** of a correct response. 
+Converting from log-odds to probability requires a baseline, which is provided by the model intercept (−0.17 at `pre_score_z = 0`, reference group = control). 
 The conversion uses the inverse-logit function `plogis()`:
 
 ```{r}
@@ -351,8 +399,8 @@ plogis(-0.17 + 0.15) # embodied group:         ~0.50
 
 The implied effect in plain language: at average pre-test score, the model estimates roughly **46% correct in control vs. 50% correct in embodied** — a difference of approximately 4 percentage points (Δ*p* ≈ 0.04).
 
-Note that this calculation uses fixed-effect point estimates only and ignores random effects, so it represents the population-average probability for a hypothetical average item and participant. 
-Individual participants and items vary substantially around this value (see the random-effects SDs in `summary(fit_b1)`).
+Note that this calculation uses fixed-effect point estimates only and ignores varying effects, so it represents the population-average probability for a hypothetical average item and participant. 
+Individual participants and items vary substantially around this value (see the varying effects SDs in `summary(fit_b1)`).
 
 ### Scale 3 — Cohen's *h*
 
@@ -415,7 +463,7 @@ The log-odds value enters the data-generating process directly; the remaining co
 ## From effect sizes to posterior inference
 
 Once a simulated dataset has been generated and a model fitted, effect sizes are recovered on the probability scale using `add_epred_draws()`, rather than point estimates. 
-This properly propagates both parameter uncertainty and the random-effects structure:
+This properly propagates both parameter uncertainty and the varying effects structure:
 
 ```{r}
 #| label: epred-workflow
@@ -458,20 +506,25 @@ Across simulation iterations, we can summarise:
 The last metric is arguably the most useful for design decisions: rather than asking "can we detect the effect?", we ask "how precisely can we characterise it?". 
 For example, a width of ±5 percentage points on Δ*p* means we can estimate the accuracy difference to within that margin, which is directly meaningful to a collaborator unfamiliar with null hypothesis testing.
 
+</details>
+
 # 5. Before we simulate: key questions and considerations
 
-The previous section established how to read and translate the effect size estimates from model `fit_b1`. Before proceeding to formal simulations, it is worth pausing to ask a set of questions that the pilot data already allow us to address — at least partially. 
+The previous section established how to read and translate the effect size estimates from model `fit_b1`. 
+Before proceeding to formal simulations, it is worth pausing to ask a set of questions. 
 This is not a mechanical step. 
 It is a scientific one: the goal is to arrive at the simulation with a clear sense of *what we are trying to learn* and *what design choices are still open*.
 
 The three questions below are not independent. 
 They have a natural dependency structure, and working through them in order prevents a common error in study planning — optimising precision for an effect that may not be worth pursuing, or scaling up a design that could be restructured more efficiently.
+For some really helpful background context to effect sizes in psychological research more generally, I recommend first reading this paper by Funder and Ozer [@funderEvaluatingEffectSize2019].
 
 ---
 
 ## 5.1 Is the effect plausibly large enough to be worth pursuing?
 
-This is the first and most important question, and it is one that pilot data with wide uncertainty can still inform.
+This is the first and most important question, and it is one that pilot data with wide uncertainty can still inform to some degree.
+With this said, we should always keep in mind that if pilot data is based on a tiny fraction of a "typical" dataset, then it will suffer from sampling variability to a larger degree and thus provide over- or under-estimates of the true population value of interest. 
 
 The posterior estimate for the group effect in `fit_b1` is β = 0.15 on the log-odds scale (95% CI: −0.37, 0.68), corresponding to Δ*p* ≈ 4 percentage points at the estimated baseline. 
 As the effect size table in @sec-effect-sizes shows, even the upper bound of the credible interval (~16pp, *h* ≈ 0.32) would constitute only a small-to-moderate effect by conventional benchmarks. 
@@ -492,7 +545,7 @@ We are in a situation where we need to ask:
   be flagging a design problem rather than a small true effect.
 
 The simulation grid in @sec-sims varies β across the range established in @sec-effect-sizes precisely to avoid committing to a single assumed effect size.
-Power and precision are reported as a function of β, so the reader can locate their own substantive threshold on the resulting curves.
+Power and precision are reported as a function of β or sample size, so the reader can evaluate their own substantive threshold on the resulting curves.
 
 ---
 
@@ -502,23 +555,21 @@ Assuming the effect is worth pursuing, the next question is whether *more of the
 
 Two features of the pilot data are relevant here.
 
-First, the **between-person variance is large**: the random intercept SD for participants is estimated at 1.03 on the log-odds scale. 
+First, the **between-person variance is large**: the varying intercept SD for participants is estimated at 1.03 on the log-odds scale. 
 This is substantial.
 It means there is considerable variability in overall accuracy across individuals, and this variability is pure noise in a between-person comparison — it inflates the uncertainty around the group effect without contributing any information about it. 
 Any between-person design is fighting against this variance.
 
-Second, the **item-level variance is also non-trivial** (SD(item intercept) = 1.24), and there is a random slope for group across items (SD = 0.19). 
+Second, the **item-level variance is also non-trivial** (SD(item intercept) = 1.24), and there is a varying slope for group across items (SD = 0.19). 
 This means the effect of the intervention varies somewhat across items, which adds a further source of uncertainty that does not disappear with more participants.
 
 We can already form a rough expectation before simulating: increasing N within the current between-person design will reduce uncertainty in the group effect, but the rate of return will be modest because a large share of the residual variance is structural (between persons, between items) rather than reducible by adding participants alone. 
-The simulations in @sec-sims quantify this explicitly, but the pilot data already suggest we should think carefully about whether there is a more efficient design available (see @sec-design-change
-below).
+The simulations in @sec-sims quantify this explicitly, but the pilot data already suggest we should think carefully about whether there is a more efficient design available (see @sec-design-change below).
 
 A practical consideration also applies here: what sample sizes are actually feasible? 
 The current dataset has 108 participants. 
 Doubling to ~200 may be straightforward; scaling to 500+ may not be. 
-The simulation section reports precision as a function of N across a range that spans the plausible, so
-collaborators can make an informed judgement about whether the precision gain at a given N justifies the recruitment cost.
+The simulation section reports precision as a function of N across a range that spans plausible sample size, so collaborators can make an informed judgement about whether the precision gain at a given N justifies the recruitment cost.
 
 ---
 
@@ -530,10 +581,9 @@ The current design is **between-person**: each participant is assigned to either
 The large between-person variance identified above (SD ≈ 1.03) is a direct cost of this design choice: individual differences in general accuracy are confounded with the group comparison, and the only way to separate them is through random assignment — which works in expectation but leaves substantial residual uncertainty at any finite N.
 
 A **within-person (crossover) design**, in which each participant experiences both conditions (on different items or at different time points), would partition out this between-person variance entirely. 
-The group comparison would then be estimated from within-person differences, removing the largest single source of noise in the current model. 
+The "group" comparison would then be estimated from within-person differences, removing the largest single source of noise in the current model. 
 In practical terms, this is often equivalent to running a study with substantially more participants for the same data collection effort — though it introduces its own considerations (order effects, fatigue, item overlap).
-
-The simulation section includes a direct comparison of the two design types at matched effect sizes and sample sizes, making the precision gain from a within-person design legible in concrete terms (expected CI width on Δ*p*).
+And for many research designs in psychology and education research, it is simply not possible to use a within-person design. 
 
 ---
 
@@ -561,7 +611,7 @@ They are a tool for navigating these decisions with the pilot data as a starting
 ## 6.1 background sources 
 
 The basic structure and code follows the examples outlined by Solomon Kurz in his
-'power' blog [posts](https://solomonkurz.netlify.app/tags/power/), and Lisa Debruine's [faux{} package](https://debruine.github.io/faux/); [journal article](https://doi.org/10.1177/2515245920965119). 
+'power' blog [posts](https://solomonkurz.netlify.app/tags/power/), and Lisa Debruine's R package [faux{}](https://www.scienceverse.org/faux/) [@debruineUnderstandingMixedEffectsModels2021]. 
 The faux package [vignettes](https://www.scienceverse.org/faux/articles/) are particularly useful and worthwhile working through.
 
 You could also look at these examples by Rich, which show how you might simulate multi-level data for a range of factorial designs: [https://github.com/rich-ramsey/sim_demo](https://github.com/rich-ramsey/sim_demo).
@@ -642,7 +692,7 @@ That is nothing new, it merely shows what a fixed-effects only model is doing.
 And it makes clear the relatively unrealistic assumptions that that kind of model entails.
 It is not that these models cannot be useful, just that when you study human beings, as well as a variety of different stimuli/items, they are likely to be more variable.
 And for this kind of fixed-effects only model, if you are ok with using frequentist stats, then a programme like G*Power would be fine to give you a ballpark estimate of power. 
-But in most cases, a more complex model would seem better suited to studying human behaviour see Barr et al., 2013 and McElreath, 2020 (statistical rethinking textbook). 
+But in most cases, a more complex model would seem better suited to studying human behaviour [@barrRandomEffectsStructure2013; @mcelreathStatisticalRethinkingBayesian2020]. 
 
 ### now, a more realistic model
 

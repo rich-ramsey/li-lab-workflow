@@ -7,7 +7,8 @@ It might also be useful for researchers in education research more generally, as
 
 After conversations with several lab members — Martina R., Ipek, Charlotte, Martina V., and Christian — a set of common themes emerged across otherwise distinct projects.
 Each project used a broadly similar design, collected similar types of data, and faced similar questions about planning and analysis.
-Rather than repeat the same conversations, I wrote them down.
+Rather than repeat my comments and feedback, I decided to outline my thoughts here in the form of a general workflow.
+The hope would be that folks in the lab will find it a useful resource for planning experiments and analysing data. 
 
 ## What this book covers
 
@@ -37,3 +38,26 @@ The simulated data preserve the key features of the original — sample size, de
 Simulated data are used for two reasons.
 First, they allow the book to be fully self-contained and publicly shareable without raising data privacy concerns.
 Second, because the true parameter values are known by construction, they make it easier to check that models are recovering what they should — a useful property when the goal is to outline a data analysis and modelling workflow.
+
+## Feedback
+
+This is a first draft version of the document, and therefore I welcome constructive feedback on things that could be improved. 
+
+## License and citation
+
+© Rich Ramsey, ETH Zürich. Licensed under 
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+```{r}
+#| eval: false
+
+@book{RamseyliLabworkflow2026,
+  title = {A Workflow for Experiment Planning and Data Analysis in Education Research},
+  author = {Ramsey, Richard},
+  year = {2026},
+  month = {1},
+  edition = {version 0.1},
+  url = {},
+  doi = {}
+}
+```
