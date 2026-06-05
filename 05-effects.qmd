@@ -1,6 +1,6 @@
 # Inference {#sec-inference}
 
-This file uses posterior predictions to make inferences and evaluate hypotheses.
+This chapter uses posterior predictions to make inferences and evaluate hypotheses.
 
 For more details on this kind of workflow for making inferences, I would suggest reading the following:
 
@@ -96,6 +96,8 @@ Here we try a simple version, which is the population-average probability for a 
 #| code-fold: false
 #| fig-width: 10 
 #| fig-height: 7 
+# create a dataframe to make predictions on
+# two groups, avg pre-test score
 nd <- tibble(
   group = c("control", "embodied"),
   pre_score_z = 0
