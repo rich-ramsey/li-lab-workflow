@@ -92,10 +92,10 @@ But, if you want to plan a study that does try to capture the nested or multi-le
 And we need to harness the power of data simulation.
 So, if you're a sucker for punishment, and if you want a more involved and simulated-based approach, then continue reading. 
 
-The approach is primarily based on two resources: a series of [blog posts](https://solomonkurz.netlify.app/tags/power/) by Solomon Kurz, and an R package called [{faux}](https://www.scienceverse.org/faux/) by Lisa Debruine. 
+The approach is primarily based on two resources: a series of [blog posts](https://solomonkurz.netlify.app/tags/power/) by Solomon Kurz, and an R package called [{faux}](https://www.scienceverse.org/faux/) by Lisa DeBruine (see this [talk](https://www.youtube.com/watch?v=O8YRgcgsk2s)). 
 There are also many other simulation-based approaches to plan studies with multi-level models - see the bottom of this [link](https://www.scienceverse.org/faux/) for details. 
 And more generally, I would strongly recommend using data simulation more generally for a variety of reasons throughout the scientific workflow that extend beyond planning [@gelman2024before; @debruineUnderstandingMixedEffectsModels2021]. 
-See this [talk](https://debruine.github.io/talks/EMPSEB-fake-it-2023/#/title-slide) by Lisa DeBruine for a nice summary.
+See these [slides](https://debruine.github.io/talks/EMPSEB-fake-it-2023/#/title-slide) by Lisa DeBruine for a nice summary.
 
 The basic approach that I follow here is as follows:
 
@@ -611,7 +611,7 @@ They are a tool for navigating these decisions with the pilot data as a starting
 ## 6.1 background sources 
 
 The basic structure and code follows the examples outlined by Solomon Kurz in his
-'power' blog [posts](https://solomonkurz.netlify.app/tags/power/), and Lisa Debruine's R package [faux{}](https://www.scienceverse.org/faux/) [@debruineUnderstandingMixedEffectsModels2021]. 
+'power' blog [posts](https://solomonkurz.netlify.app/tags/power/), and Lisa DeBruine's R package [faux{}](https://www.scienceverse.org/faux/) [@debruineUnderstandingMixedEffectsModels2021]. 
 The faux package [vignettes](https://www.scienceverse.org/faux/articles/) are particularly useful and worthwhile working through.
 
 You could also look at these examples by Rich, which show how you might simulate multi-level data for a range of factorial designs: [https://github.com/rich-ramsey/sim_demo](https://github.com/rich-ramsey/sim_demo).

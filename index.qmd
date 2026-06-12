@@ -45,8 +45,7 @@ This is a first draft version of the document, and therefore I welcome construct
 
 ## License and citation
 
-© Rich Ramsey, ETH Zürich. Licensed under 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+© Rich Ramsey, ETH Zürich. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ```{r}
 #| eval: false
@@ -61,3 +60,7 @@ This is a first draft version of the document, and therefore I welcome construct
   doi = {}
 }
 ```
+
+## Acknowledgments
+
+Many thanks to Isabel Nigsch for helpful feedback on a previous version of this project.
