@@ -56,8 +56,7 @@ This is a first draft version of the document, and therefore I welcome construct
   year = {2026},
   month = {10},
   edition = {version 0.1},
-  url = {https://rich-ramsey.github.io/li-lab-workflow/},
-  doi = {}
+  url = {https://rich-ramsey.github.io/li-lab-workflow/}
 }
 ```
 
