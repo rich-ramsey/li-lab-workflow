@@ -74,7 +74,7 @@
     "href": "index.html#license-and-citation",
     "title": "A Workflow for Experiment Planning and Data Analysis in Education Research",
     "section": "License and citation",
-    "text": "License and citation\n© Rich Ramsey, ETH Zürich. Licensed under CC BY 4.0.\n\n\nCode\n@book{RamseyliLabworkflow2026,\n  title = {A Workflow for Experiment Planning and Data Analysis in Education Research},\n  author = {Ramsey, Richard},\n  year = {2026},\n  month = {1},\n  edition = {version 0.1},\n  url = {},\n  doi = {}\n}",
+    "text": "License and citation\n© Rich Ramsey, ETH Zürich. Licensed under CC BY 4.0.\n\n\nCode\n@book{RamseyliLabworkflow2026,\n  title = {A Workflow for Experiment Planning and Data Analysis in Education Research},\n  author = {Ramsey, Richard},\n  year = {2026},\n  month = {10},\n  edition = {version 0.1},\n  url = {https://rich-ramsey.github.io/li-lab-workflow/}\n}",
     "crumbs": [
       "Preface"
     ]
