@@ -298,7 +298,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">A Workflow for Experiment Planning and Data Analysis in Education Research</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/rich-ramsey/li-lab-workflow/raw/main/_book-pdf/A-Workflow-for-Experiment-Planning-and-Data-Analysis-in-Education-Research.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF" target="_blank"><i class="bi bi-file-pdf"></i></a>
     <a href="https://github.com/rich-ramsey/li-lab-workflow" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -397,14 +398,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#read-in-the-data" id="toc-read-in-the-data" class="nav-link active" data-scroll-target="#read-in-the-data">1. Read in the data</a></li>
-  <li><a href="#reshape-from-wide-to-long" id="toc-reshape-from-wide-to-long" class="nav-link" data-scroll-target="#reshape-from-wide-to-long">2. Reshape from wide to long</a></li>
-  <li><a href="#filter-and-create-factors-for-plotting" id="toc-filter-and-create-factors-for-plotting" class="nav-link" data-scroll-target="#filter-and-create-factors-for-plotting">3. Filter and create factors for plotting</a></li>
-  <li><a href="#run-some-data-checks" id="toc-run-some-data-checks" class="nav-link" data-scroll-target="#run-some-data-checks">4. Run some data checks</a></li>
-  <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">5. Plot the data</a></li>
-  <li><a href="#save-out-the-data-for-modelling" id="toc-save-out-the-data-for-modelling" class="nav-link" data-scroll-target="#save-out-the-data-for-modelling">6. Save out the data for modelling</a></li>
+  <li><a href="#read-in-the-data" id="toc-read-in-the-data" class="nav-link active" data-scroll-target="#read-in-the-data">Read in the data</a></li>
+  <li><a href="#reshape-from-wide-to-long" id="toc-reshape-from-wide-to-long" class="nav-link" data-scroll-target="#reshape-from-wide-to-long">Reshape from wide to long</a></li>
+  <li><a href="#filter-and-create-factors-for-plotting" id="toc-filter-and-create-factors-for-plotting" class="nav-link" data-scroll-target="#filter-and-create-factors-for-plotting">Filter and create factors for plotting</a></li>
+  <li><a href="#run-some-data-checks" id="toc-run-some-data-checks" class="nav-link" data-scroll-target="#run-some-data-checks">Run some data checks</a></li>
+  <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data</a></li>
+  <li><a href="#save-out-the-data-for-modelling" id="toc-save-out-the-data-for-modelling" class="nav-link" data-scroll-target="#save-out-the-data-for-modelling">Save out the data for modelling</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/rich-ramsey/li-lab-workflow/edit/main/03-wrangle.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rich-ramsey/li-lab-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/rich-ramsey/li-lab-workflow/blob/main/03-wrangle.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rich-ramsey/li-lab-workflow/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/rich-ramsey/li-lab-workflow/blob/main/03-wrangle.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -439,8 +440,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Plot the data.</li>
 <li>Save our the data ready for modelling.</li>
 </ol>
-<section id="read-in-the-data" class="level1">
-<h1>1. Read in the data</h1>
+<section id="read-in-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-the-data">Read in the data</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat_wide <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/sim_dat_wide.csv"</span>,</span>
@@ -464,8 +465,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(dat_wide)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="reshape-from-wide-to-long" class="level1">
-<h1>2. Reshape from wide to long</h1>
+<section id="reshape-from-wide-to-long" class="level2">
+<h2 class="anchored" data-anchor-id="reshape-from-wide-to-long">Reshape from wide to long</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dat_long <span class="ot">&lt;-</span> dat_wide <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -493,8 +494,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(dat_long)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="filter-and-create-factors-for-plotting" class="level1">
-<h1>3. Filter and create factors for plotting</h1>
+<section id="filter-and-create-factors-for-plotting" class="level2">
+<h2 class="anchored" data-anchor-id="filter-and-create-factors-for-plotting">Filter and create factors for plotting</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat_long <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(test_time <span class="sc">==</span> <span class="st">"delay"</span>) <span class="sc">|&gt;</span></span>
@@ -520,8 +521,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="run-some-data-checks" class="level1">
-<h1>4. Run some data checks</h1>
+<section id="run-some-data-checks" class="level2">
+<h2 class="anchored" data-anchor-id="run-some-data-checks">Run some data checks</h2>
 <p>At this point, it would be worth running some checks on the data. This will almost always involve data visualisation at the same time.</p>
 <p>Basic checks might be:</p>
 <ul>
@@ -534,8 +535,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>There will also be a bunch of other very sensible things that you should check and plot. And this is the engine room of data analysis, so seeking advice on good data hygiene and principles for data cleaning would be a good idea.</p>
 </section>
-<section id="plot-the-data" class="level1">
-<h1>5. Plot the data</h1>
+<section id="plot-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
 <p>And now summarise and plot</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dat_summary <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
@@ -623,8 +624,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="save-out-the-data-for-modelling" class="level1">
-<h1>6. Save out the data for modelling</h1>
+<section id="save-out-the-data-for-modelling" class="level2">
+<h2 class="anchored" data-anchor-id="save-out-the-data-for-modelling">Save out the data for modelling</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(dat, <span class="st">"data/dat.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1157,7 +1158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1. Read in the data </span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Read in the data </span></span>
 <span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: read-wide-data</span></span>
@@ -1172,7 +1173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(dat_wide)</span></span>
 <span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a><span class="fu"># 2. Reshape from wide to long</span></span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshape from wide to long</span></span>
 <span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: create-long-data</span></span>
@@ -1192,7 +1193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(dat_long)</span></span>
 <span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. Filter and create factors for plotting</span></span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Filter and create factors for plotting</span></span>
 <span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: create-factors</span></span>
@@ -1210,7 +1211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span>
 <span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Run some data checks</span></span>
+<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Run some data checks</span></span>
 <span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a>At this point, it would be worth running some checks on the data.</span>
 <span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a>This will almost always involve data visualisation at the same time.</span>
@@ -1228,7 +1229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a>And this is the engine room of data analysis, so seeking advice on good data hygiene and principles for data cleaning would be a good idea.</span>
 <span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. Plot the data</span></span>
+<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Plot the data</span></span>
 <span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a>And now summarise and plot</span>
 <span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a></span>
@@ -1305,7 +1306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1)</span>
 <span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Save out the data for modelling</span></span>
+<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## Save out the data for modelling</span></span>
 <span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: save-data</span></span>
@@ -1322,7 +1323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rich-ramsey/li-lab-workflow/edit/main/03-wrangle.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rich-ramsey/li-lab-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/rich-ramsey/li-lab-workflow/blob/main/03-wrangle.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rich-ramsey/li-lab-workflow/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/rich-ramsey/li-lab-workflow/blob/main/03-wrangle.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
