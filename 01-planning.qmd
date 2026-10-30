@@ -30,14 +30,21 @@ lakens_table <- tibble::tibble(
   )
 )
 
-lakens_table |>
-  knitr::kable(align = "ll") |>
-  kableExtra::kable_styling(
-    bootstrap_options = c("striped", "hover"),
-    full_width = TRUE
-  ) |>
-  kableExtra::column_spec(1, bold = TRUE, width = "25%") |>
-  kableExtra::column_spec(2, width = "75%")
+if (knitr::is_html_output()) {
+  lakens_table |>
+    knitr::kable(align = "ll") |>
+    kableExtra::kable_styling(
+      bootstrap_options = c("striped", "hover"),
+      full_width = TRUE
+    ) |>
+    kableExtra::column_spec(1, bold = TRUE, width = "25%") |>
+    kableExtra::column_spec(2, width = "75%")
+} else {
+  lakens_table |>
+    tinytable::tt(width = c(0.25, 0.75)) |>
+    tinytable::style_tt(j = 1, bold = TRUE) |>
+    tinytable::theme_striped()
+}
 ```
 
 Based on my conversations with various people in the learning and instruction lab, as well as many folks in other psychology and human neuroscience labs, there is a discrepancy between how people say they plan studies (or how they would like to plan studies) and how they plan studies in practice. 
@@ -78,14 +85,21 @@ lakens_table_eval <- tibble::tibble(
   )
 )
 
-lakens_table_eval |>
-  knitr::kable(align = "ll") |>
-  kableExtra::kable_styling(
-    bootstrap_options = c("striped", "hover"),
-    full_width = TRUE
-  ) |>
-  kableExtra::column_spec(1, bold = TRUE, width = "25%") |>
-  kableExtra::column_spec(2, width = "75%")
+if (knitr::is_html_output()) {
+  lakens_table_eval |>
+    knitr::kable(align = "ll") |>
+    kableExtra::kable_styling(
+      bootstrap_options = c("striped", "hover"),
+      full_width = TRUE
+    ) |>
+    kableExtra::column_spec(1, bold = TRUE, width = "25%") |>
+    kableExtra::column_spec(2, width = "75%")
+} else {
+  lakens_table_eval |>
+    tinytable::tt(width = c(0.25, 0.75)) |>
+    tinytable::style_tt(j = 1, bold = TRUE) |>
+    tinytable::theme_striped()
+}
 ```
 
 But, if you want to plan a study that does try to capture the nested or multi-level nature of the data, such as by allowing for variation across participants or measurement items [@barrRandomEffectsStructure2013], then things get complicated fast.
@@ -156,7 +170,7 @@ theme_set(
 )
 ```
 
-# 1. Read in the data and models
+## Read in the data and models
 
 Here we use simulated data, which is based on some of Ipek's PhD data. 
 So this is not real data, it is synthetic. 
@@ -194,7 +208,7 @@ read models (if already computed, as they have been in this example project)
 fit_b1 <- readRDS("models/fit_b1.rds")
 ```
 
-# 2. Summarise and plot the data
+## Summarise and plot the data
 
 summarise 
 
@@ -276,7 +290,7 @@ print(p1)
 #ggsave("figures/sim_dat_rain_plot.png", width = 8, height = 6)
 ```
 
-# 3. Fit a model
+## Fit a model
 
 Fit a "maximal" model as specified by the design.
 
@@ -349,18 +363,14 @@ summary(fit_b1)
 pp_check(fit_b1, ndraws = 100, type = "bars_grouped", group = "group")
 ```
 
-# 4. Understanding effect sizes under the logit link {#sec-effect-sizes}
+## Understanding effect sizes under the logit link {#sec-effect-sizes}
 
-This section is hidden to streamline and simplify the chapter. 
-Click "Show section" to read more on understanding effect sizes in logisitic regression.
-
-<details>
-<summary>Show section</summary>
+Only read this section if you want to read more on understanding effect sizes in logisitic regression.
 
 Before running simulations, it is worth establishing a clear mapping between the model's native parameterisation and effect sizes that are interpretable to a general audience. 
 This section documents that mapping as a reference point for collaborators and for later simulation design.
 
-## The scale problem
+### The scale problem
 
 Model `fit_b1` uses a Bernoulli likelihood with the logit link, so all regression coefficients live on the **log-odds scale**. 
 The posterior estimate for `groupembodied` is 0.15 (95% CI: −0.37, 0.68). 
@@ -368,7 +378,7 @@ This means that being in the embodied group increases the log-odds of a correct 
 
 There are three useful scales for communicating this effect, each suited to a different audience.
 
-### Scale 1 — Odds ratio
+#### Scale 1 — Odds ratio
 
 Exponentiating the log-odds coefficient converts it to an **odds ratio** (OR):
 
@@ -384,7 +394,7 @@ An OR of 1.16 means the odds of a correct response are 16% higher in the embodie
 ORs are standard in clinical and epidemiological reporting but still require some statistical literacy. 
 Crucially, the 95% CI on the OR scale [0.69, 1.97] comfortably spans 1.0, reflecting the substantial uncertainty in this estimate.
 
-### Scale 2 — Probability scale
+#### Scale 2 — Probability scale
 
 The most interpretable scale for a general audience is the **probability** of a correct response. 
 Converting from log-odds to probability requires a baseline, which is provided by the model intercept (−0.17 at `pre_score_z = 0`, reference group = control). 
@@ -402,7 +412,7 @@ The implied effect in plain language: at average pre-test score, the model estim
 Note that this calculation uses fixed-effect point estimates only and ignores varying effects, so it represents the population-average probability for a hypothetical average item and participant. 
 Individual participants and items vary substantially around this value (see the varying effects SDs in `summary(fit_b1)`).
 
-### Scale 3 — Cohen's *h*
+#### Scale 3 — Cohen's *h*
 
 For collaborators accustomed to thinking in terms of Cohen's *d*, **Cohen's h** is the natural standardised effect size for a difference between two proportions:
 
@@ -506,9 +516,7 @@ Across simulation iterations, we can summarise:
 The last metric is arguably the most useful for design decisions: rather than asking "can we detect the effect?", we ask "how precisely can we characterise it?". 
 For example, a width of ±5 percentage points on Δ*p* means we can estimate the accuracy difference to within that margin, which is directly meaningful to a collaborator unfamiliar with null hypothesis testing.
 
-</details>
-
-# 5. Before we simulate: key questions and considerations
+## Before we simulate: key questions and considerations
 
 The previous section established how to read and translate the effect size estimates from model `fit_b1`. 
 Before proceeding to formal simulations, it is worth pausing to ask a set of questions. 
@@ -519,9 +527,7 @@ The three questions below are not independent.
 They have a natural dependency structure, and working through them in order prevents a common error in study planning — optimising precision for an effect that may not be worth pursuing, or scaling up a design that could be restructured more efficiently.
 For some really helpful background context to effect sizes in psychological research more generally, I recommend first reading this paper by Funder and Ozer [@funderEvaluatingEffectSize2019].
 
----
-
-## 5.1 Is the effect plausibly large enough to be worth pursuing?
+### Is the effect plausibly large enough to be worth pursuing?
 
 This is the first and most important question, and it is one that pilot data with wide uncertainty can still inform to some degree.
 With this said, we should always keep in mind that if pilot data is based on a tiny fraction of a "typical" dataset, then it will suffer from sampling variability to a larger degree and thus provide over- or under-estimates of the true population value of interest. 
@@ -547,9 +553,7 @@ We are in a situation where we need to ask:
 The simulation grid in @sec-sims varies β across the range established in @sec-effect-sizes precisely to avoid committing to a single assumed effect size.
 Power and precision are reported as a function of β or sample size, so the reader can evaluate their own substantive threshold on the resulting curves.
 
----
-
-## 5.2 What does more data buy us, and how much more is feasible?
+### What does more data buy us, and how much more is feasible?
 
 Assuming the effect is worth pursuing, the next question is whether *more of the same design* — more participants, same between-person structure — is a viable path to adequate precision.
 
@@ -571,9 +575,7 @@ The current dataset has 108 participants.
 Doubling to ~200 may be straightforward; scaling to 500+ may not be. 
 The simulation section reports precision as a function of N across a range that spans plausible sample size, so collaborators can make an informed judgement about whether the precision gain at a given N justifies the recruitment cost.
 
----
-
-## 5.3 Does the design itself need to change? {#sec-design-change}
+### Does the design itself need to change? {#sec-design-change}
 
 This is often the highest-leverage question, and one that is easy to overlook when the default assumption is that a larger version of the current design is the natural next step.
 
@@ -585,9 +587,7 @@ The "group" comparison would then be estimated from within-person differences, r
 In practical terms, this is often equivalent to running a study with substantially more participants for the same data collection effort — though it introduces its own considerations (order effects, fatigue, item overlap).
 And for many research designs in psychology and education research, it is simply not possible to use a within-person design. 
 
----
-
-## 5.4 Summary: a decision sequence
+### Summary: a decision sequence
 
 The three questions above have a natural ordering that structures the simulation work that follows:
 
@@ -606,9 +606,9 @@ A flowchart for deciding whether to simulate.
 This framing means the simulations in @sec-sims are not a mechanical power calculation. 
 They are a tool for navigating these decisions with the pilot data as a starting point, and the effect size table in @sec-effect-sizes as the reference for what "large enough" means in interpretable units.
 
-# 6. Run some simulations {#sec-sims}
+## Run some simulations {#sec-sims}
 
-## 6.1 background sources 
+### Background sources 
 
 The basic structure and code follows the examples outlined by Solomon Kurz in his
 'power' blog [posts](https://solomonkurz.netlify.app/tags/power/), and Lisa DeBruine's R package [faux{}](https://www.scienceverse.org/faux/) [@debruineUnderstandingMixedEffectsModels2021]. 
@@ -616,7 +616,7 @@ The faux package [vignettes](https://www.scienceverse.org/faux/articles/) are pa
 
 You could also look at these examples by Rich, which show how you might simulate multi-level data for a range of factorial designs: [https://github.com/rich-ramsey/sim_demo](https://github.com/rich-ramsey/sim_demo).
 
-## 6.2 general approach ##
+### General approach 
 
 The basic workflow is as follows:
 
@@ -625,9 +625,9 @@ The basic workflow is as follows:
 3. Write a function to create 100s or 1000s of datasets and vary parameters of interest (e.g., sample size, trial count, effect size).
 4. Summarise the simulated data to estimate likely power or precision of the various research designs.
 
-## 6.3 simulate one dataset
+### Simulate one dataset
 
-### a simplified example to show the process
+#### A simplified example to show the process
 
 Let's just pretend that this is a single level model (no varying effects) with two groups and one testing time.
 Maybe not a sensible design, but useful for thinking about simulating data.
@@ -638,13 +638,13 @@ b0 - intercept (control group) and b1 (embodied group estimate).
 #| label: create-d0
 #| code-fold: false
 ## set some values
-subj_n = 108 # number of subjects in total
-group_n = 2 # number of pid groups
-item_n = 8 # number of items
+subj_n <- 108 # number of subjects in total
+group_n <- 2 # number of pid groups
+item_n <- 8 # number of items
 
 # fixed effects
-b0 = -0.17 # intercept
-b1 = 0.15 # fixed effect groupembodied
+b0 <- -0.17 # intercept
+b1 <- 0.15 # fixed effect groupembodied
 
 ## make it reproducible
 set.seed(1)
@@ -694,7 +694,7 @@ It is not that these models cannot be useful, just that when you study human bei
 And for this kind of fixed-effects only model, if you are ok with using frequentist stats, then a programme like G*Power would be fine to give you a ballpark estimate of power. 
 But in most cases, a more complex model would seem better suited to studying human behaviour [@barrRandomEffectsStructure2013; @mcelreathStatisticalRethinkingBayesian2020]. 
 
-### now, a more realistic model
+#### A more realistic model
 
 We already have the model object (fit_b1) fitted to existing data, so (1) in the above workflow has been completed.
 
@@ -726,23 +726,23 @@ set some values based on the model
 #| code-fold: false
 ## set some values
 
-subj_n = 108 # number of subjects in total
-group_n = 2 # number of pid groups
-item_n = 8 # number of items
+subj_n <- 108 # number of subjects in total
+group_n <- 2 # number of pid groups
+item_n <- 8 # number of items
 
 # fixed effects
-b0 = -0.17 # intercept
-b1 = 0.15 # fixed effect groupembodied
-b2 = 0.31 # fixed effect pre_score_z
+b0 <- -0.17 # intercept
+b1 <- 0.15 # fixed effect groupembodied
+b2 <- 0.31 # fixed effect pre_score_z
 
 # varying effects
 ## item_id
-u0i_sd = 1.24 # varying intercept SD for items
-u1i_sd = 0.19 # varying b1 slope SD for items (effect of groupembodied)
-r01i = -0.11 # correlation between varying effects 0 and 1 for items
+u0i_sd <- 1.24 # varying intercept SD for items
+u1i_sd <- 0.19 # varying b1 slope SD for items (effect of groupembodied)
+r01i <- -0.11 # correlation between varying effects 0 and 1 for items
 
 ## subject id
-u0s_sd = 1.03 # varying intercept SD for subjects
+u0s_sd <- 1.03 # varying intercept SD for subjects
 ```
 
 Create the data using faux
@@ -865,7 +865,7 @@ knitr::kable(
 )
 ```
 
-## 6.4 fit a model to the simulated data d1 ##
+### Fit a model to the simulated data d1 
 
 Here we fit a model and look at the output.
 
@@ -964,7 +964,7 @@ summary(update_sim_b1)
 pp_check(update_sim_b1, ndraws = 100, type = "bars_grouped", group = "group")
 ```
 
-## 6.5 create a function to simulate and fit multiple datasets
+### Create a function to simulate and fit multiple datasets
 
 ```{r}
 #| label: sim-function
@@ -1022,7 +1022,7 @@ sim(subj_n = 100)
 # and you can vary any parameters, as you wish.
 ```
 
-## 6.6 iterate through multiple sims
+### Iterate through multiple sims
 
 let's scale it up to multiple reps and only save the parameters of interest rather than the full brms model and the data.
 
@@ -1074,9 +1074,9 @@ head(p_100)
 write_csv(p_100, "data/p_100_sims.csv")
 ```
 
-# 7. Let's look at the output 
+## Let's look at the output 
 
-## 7.1 quick plots and summaries
+### Quick plots and summaries
 
 ```{r}
 #| label: plot-params
@@ -1169,7 +1169,7 @@ ok, at this point the parameter recovery looks sensible, such that the distribut
 
 But what about statistical "power" or precision?
 
-## 7.2 calculate power i.e., % Q2.5 > 0 
+### Calculate power i.e., % Q2.5 > 0 
 
 ```{r}
 #| label: calc-power
@@ -1241,7 +1241,7 @@ p_params
 ```
 
 
-## 7.3 let's now consider widths and precision, rather than NHST and power 
+### Let's now consider widths and precision, rather than NHST and power 
 
 ```{r}
 #| label: plot-lower-q

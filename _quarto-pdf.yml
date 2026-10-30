@@ -1,0 +1,36 @@
+project:
+  type: book
+  output-dir: _book-pdf
+  
+book:
+  chapters:
+    - index.qmd
+    
+    - part: "Before data collection"
+      chapters: 
+        - 01-planning.qmd
+        - 02-prereg.qmd
+        
+    - part: "After data collection"
+      chapters: 
+        - 03-wrangle.qmd
+        - 04-model.qmd
+        - 05-effects.qmd
+
+  appendices:
+    - data-dictionary.qmd
+
+format:
+  typst:
+    keep-typ: true
+    toc: true
+    number-sections: true
+    section-numbering: 1.1.1
+    echo: false
+    papersize: a4
+    include-in-header: _typst-style.typ
+
+execute:
+  echo: false
+  warning: false
+  message: false

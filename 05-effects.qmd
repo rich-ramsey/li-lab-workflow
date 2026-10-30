@@ -4,8 +4,8 @@ This chapter uses posterior predictions to make inferences and evaluate hypothes
 
 For more details on this kind of workflow for making inferences, I would suggest reading the following:
 
-1. [Statistical rethinking](https://xcelab.net/rm/) by Richard McElreath [@mcelreathStatisticalRethinkingBayesian2020]. This provides a nice overview of prediction in the context of Bayesian data analysis.
-2. [Model to meaning](https://marginaleffects.com/) by Vincent Arel-Bundock [@arel-bundockModelMeaningHow2025], as well as these related journal articles [@arel-bundockHowInterpretStatistical2024; @rohrerModelsPredictionMachines2026]. These articles provide the intuition and the tools to make it clear why it can often be advantageous to take a model and make predictions in a natural scale that that data were recorded in, rather than parameters in a regression model.
+- [Statistical rethinking](https://xcelab.net/rm/) by Richard McElreath [@mcelreathStatisticalRethinkingBayesian2020]. This provides a nice overview of prediction in the context of Bayesian data analysis.
+- [Model to meaning](https://marginaleffects.com/) by Vincent Arel-Bundock [@arel-bundockModelMeaningHow2025], as well as these related journal articles [@arel-bundockHowInterpretStatistical2024; @rohrerModelsPredictionMachines2026]. These articles provide the intuition and the tools to make it clear why it can often be advantageous to take a model and make predictions in a natural scale that that data were recorded in, rather than parameters in a regression model.
 
 ```{r}
 #| label: setup
@@ -57,7 +57,7 @@ theme_set(
 )
 ```
 
-# 1. Read in the data and models
+## Read in the data and models
 
 ```{r}
 #| label: read-data
@@ -87,7 +87,7 @@ fit_b2 <- readRDS("models/fit_b2.rds")
 summary(fit_b2)
 ```
 
-# 2. Calculate posterior predictions
+## Calculate posterior predictions
 
 Here we try a simple version, which is the population-average probability for a hypothetical average participant on a hypothetical average item.
 

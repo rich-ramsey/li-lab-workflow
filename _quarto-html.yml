@@ -1,0 +1,43 @@
+project:
+  type: book
+  output-dir: _book
+  
+book:
+  sidebar:
+    tools:
+      - icon: file-pdf
+        text: "Download PDF"
+        href: https://github.com/rich-ramsey/li-lab-workflow/raw/main/_book-pdf/A-Workflow-for-Experiment-Planning-and-Data-Analysis-in-Education-Research.pdf
+        target: _blank
+  chapters:
+    - index.qmd
+
+    - part: "Before data collection"
+      chapters: 
+        - 01-planning.qmd
+        - 02-prereg.qmd
+        
+    - part: "After data collection"
+      chapters: 
+        - 03-wrangle.qmd
+        - 04-model.qmd
+        - 05-effects.qmd
+
+    - references.qmd
+
+  appendices:
+    - data-dictionary.qmd
+
+format:
+  html:
+    theme:
+      dark: solar
+      light: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-fold: true
+    code-tools: true
+    link-external-newwindow: true
+    mermaid:
+      theme: neutral

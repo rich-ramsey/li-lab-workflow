@@ -39,7 +39,7 @@ theme_set(
 )
 ```
 
-# 1. Read in the data 
+## Read in the data 
 
 ```{r}
 #| label: read-wide-data
@@ -54,7 +54,7 @@ head(dat_wide)
 # summary(dat_wide)
 ```
 
-# 2. Reshape from wide to long
+## Reshape from wide to long
 
 ```{r}
 #| label: create-long-data
@@ -74,7 +74,7 @@ head(dat_long)
 # summary(dat_long)
 ```
 
-# 3. Filter and create factors for plotting
+## Filter and create factors for plotting
 
 ```{r}
 #| label: create-factors
@@ -92,7 +92,7 @@ dat <- dat_long |>
 head(dat)
 ```
 
-# 4. Run some data checks
+## Run some data checks
 
 At this point, it would be worth running some checks on the data.
 This will almost always involve data visualisation at the same time.
@@ -110,7 +110,7 @@ There will also be a bunch of other very sensible things that you should check a
 And this is the engine room of data analysis, so seeking advice on good data hygiene and principles for data cleaning would be a good idea.
 
 
-# 5. Plot the data
+## Plot the data
 
 And now summarise and plot
 
@@ -187,7 +187,7 @@ p1 <- dat_summary |>
 print(p1)
 ```
 
-# 6. Save out the data for modelling
+## Save out the data for modelling
 
 ```{r}
 #| label: save-data

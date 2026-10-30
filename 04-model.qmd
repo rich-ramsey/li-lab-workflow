@@ -63,7 +63,7 @@ theme_set(
 )
 ```
 
-# 1. Read in the data 
+## Read in the data 
 
 ```{r}
 #| label: read-data
@@ -83,7 +83,7 @@ head(dat)
 # summary(dat)
 ```
 
-# 2. Plot and check
+## Plot and check
 
 This just feels like good practice to take a look at the data again.
 
@@ -156,7 +156,7 @@ p1 <- dat_summary |>
 print(p1)
 ```
 
-# 3. Fit a model
+## Fit a model
 
 Fit a "maximal" model as specified by the design.
 

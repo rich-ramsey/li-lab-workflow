@@ -19,3 +19,4 @@ renv/library/
 **/*.quarto_ipynb
 _book/
 _freeze/
+*_files/
